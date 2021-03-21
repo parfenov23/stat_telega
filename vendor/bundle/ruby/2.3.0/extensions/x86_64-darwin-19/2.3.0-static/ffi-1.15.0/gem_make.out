@@ -1,0 +1,42 @@
+current directory: /Users/parfenov/projects_rails/stat_telega/vendor/bundle/ruby/2.3.0/gems/ffi-1.15.0/ext/ffi_c
+/Users/parfenov/.rbenv/versions/2.3.1/bin/ruby -I /Users/parfenov/.rbenv/versions/2.3.1/lib/ruby/site_ruby/2.3.0 -r ./siteconf20210322-37688-y0ht23.rb extconf.rb
+checking for ffi_prep_closure_loc() in -lffi... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/parfenov/projects_rails/stat_telega/vendor/bundle/ruby/2.3.0/gems/ffi-1.15.0/ext/ffi_c
+make DESTDIR\= clean
+
+current directory: /Users/parfenov/projects_rails/stat_telega/vendor/bundle/ruby/2.3.0/gems/ffi-1.15.0/ext/ffi_c
+make DESTDIR\=
+compiling Thread.c
+compiling Buffer.c
+compiling DynamicLibrary.c
+compiling Variadic.c
+compiling ffi.c
+compiling Pointer.c
+compiling MemoryPointer.c
+compiling Platform.c
+compiling LongDouble.c
+compiling Function.c
+compiling MappedType.c
+compiling Type.c
+compiling Types.c
+compiling StructLayout.c
+compiling ArrayType.c
+compiling LastError.c
+compiling Struct.c
+compiling Call.c
+compiling MethodHandle.c
+compiling AbstractMemory.c
+compiling FunctionInfo.c
+compiling ClosurePool.c
+compiling StructByValue.c
+linking shared-object ffi_c.bundle
+
+current directory: /Users/parfenov/projects_rails/stat_telega/vendor/bundle/ruby/2.3.0/gems/ffi-1.15.0/ext/ffi_c
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 ffi_c.bundle ./.gem.20210322-37688-h8iznh
