@@ -28,6 +28,7 @@ require 'capistrano/rails/migrations'
 require 'capistrano/rvm'
 require 'capistrano3/unicorn'
 require 'whenever/capistrano'
+require 'capistrano/secrets_yml'
 # require 'slackistrano'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
