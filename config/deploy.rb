@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.6.1'
+lock '3.16.0'
 set :rvm_ruby_version, '2.3.1'
 set :repo_url, 'git@github.com:parfenov23/stat_telega.git'
 
@@ -21,7 +21,7 @@ set :deploy_via, :copy
 set :copy_cache, false
 
 namespace :deploy do
-  after 'deploy:publishing', 'deploy:restart', 'deploy:ws_sms_pushable_restart'
+  after 'deploy:publishing', 'deploy:restart'
 
   task :restart do
     invoke 'unicorn:legacy_restart'
