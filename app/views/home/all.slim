@@ -1,0 +1,25 @@
+form.input-group
+  select#inputGroupSelect04.custom-select name="user"
+    option value="" Выберите пользователя
+    - User.all.each do |user|
+      option value=user.id selected=(user.id == params[:user].to_i)  = user.email
+  .input-group-append
+    button.btn.btn-outline-secondary type="submit"  Просмотр
+hr
+h3 = "Всего не обработанных: #{@count_no_processed}"
+h3 = "В архиве: #{@count_archive}"
+h3 = "Общее количество обработанных: #{@channels.count}"
+table.table
+  thead
+    tr
+      th scope="col"  Категория
+      th scope="col"  Ссылка
+  tbody
+    - @channels.each do |channel|
+      tr
+        td = find_category(channel.category)
+        td 
+          a href=channel.link target="_blank" = channel.link
+- if @user.blank?
+  hr
+  a.btn.btn-outline-secondary href="/all_to_archive" Перенести в архив

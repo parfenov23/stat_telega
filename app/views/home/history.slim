@@ -1,0 +1,12 @@
+h3.all_count
+  = "Общее количество: #{@channels.count}"
+hr
+- @channels.each do |channel|
+  form.row action="/update" method="post"
+    .col
+      a href=channel.link target="_blank" = channel.link
+    .col
+      input name="category" value=channel.category
+      input type="hidden" name="id" value=channel.id
+    .col
+      button.btn.btn-primary type="submit" Обновить

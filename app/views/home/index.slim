@@ -1,0 +1,18 @@
+- if @channel.present?
+  form action="/update" method="post"
+    .form-group
+      label Номер категории:
+      input name="category"
+    input type="hidden" name="id" value=@channel.id
+    button.btn.btn-primary type="submit" Сохранить
+  br
+  a href=@link target="_blank" = @link
+  br
+  - if @info.present? || @posts.present?
+    = raw @info
+    - if @current_link.present?
+      a.btn.btn-primary href=@current_link target="_blank" Предпросмотр
+    hr
+    = raw @posts
+- else
+  |Нет доступных каналов
