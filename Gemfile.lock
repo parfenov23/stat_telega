@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/randym/axlsx.git
+  revision: c8ac844572b25fda358cc01d2104720c4c42f450
+  ref: c8ac844
+  specs:
+    axlsx (2.1.0.pre)
+      htmlentities (~> 4.3.4)
+      mimemagic (~> 0.3)
+      nokogiri (>= 1.6.6)
+      rubyzip (>= 1.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,6 +92,14 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
+    caxlsx (3.0.4)
+      htmlentities (~> 4.3, >= 4.3.4)
+      mimemagic (~> 0.3)
+      nokogiri (~> 1.10, >= 1.10.4)
+      rubyzip (>= 1.3.0, < 3)
+    caxlsx_rails (0.6.2)
+      actionpack (>= 3.1)
+      caxlsx (>= 3.0)
     childprocess (3.0.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
@@ -109,6 +128,7 @@ GEM
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.8.9)
@@ -264,6 +284,8 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zip-zip (0.3)
+      rubyzip (>= 1.0.0)
 
 PLATFORMS
   ruby
@@ -271,6 +293,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  axlsx!
   bootsnap (>= 1.1.0)
   byebug
   capistrano
@@ -280,6 +303,7 @@ DEPENDENCIES
   capistrano-secrets-yml
   capistrano3-unicorn
   capybara (>= 2.15)
+  caxlsx_rails
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
@@ -289,6 +313,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.4, >= 5.2.4.5)
+  rubyzip (>= 1.2.1)
   sass-rails (~> 5.0)
   selenium-webdriver
   slim (~> 2.0.0)
@@ -300,6 +325,7 @@ DEPENDENCIES
   unicorn
   web-console (>= 3.3.0)
   whenever
+  zip-zip
 
 RUBY VERSION
    ruby 2.3.1p112
