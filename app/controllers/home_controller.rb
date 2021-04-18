@@ -34,7 +34,7 @@ class HomeController < ApplicationController
   end
 
   def history
-    @channels = current_user.channels.order("updated_at DESC")
+    @channels = current_user.channels.where(archive: false).order("updated_at DESC")
   end
 
   def all
