@@ -1,10 +1,11 @@
 class GithubWebhooksController < ActionController::Base
   skip_before_action :verify_authenticity_token
   include GithubWebhook::Processor
-
+  require 'bot_api'
   # Handle push event пуш в ветку
   def github_push(payload)
     git_params = {pusher_name: payload["pusher"]["name"], commits: payload["commits"], branch: payload["ref"]}
+    Bot::Api.notify(git_params)
     p "================================="
     p git_params
   end
