@@ -12,6 +12,10 @@ class GithubWebhooksController < ActionController::Base
     binding.pry
   end
 
+  def github_commit_comment(payload)
+    binding.pry 
+  end
+
   private
 
   def webhook_secret(payload)
