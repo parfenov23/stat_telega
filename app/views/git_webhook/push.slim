@@ -1,11 +1,9 @@
 p Тип: PUSH
 p = "User: #{pusher_name}" 
-p Коммиты:
-br
-br
-- commits.each do |commit|
-  p
-    a href=commit["url"] = commit["message"]
-br
-br
 p = "Ветка: #{branch}"
+p Коммит:
+p
+  a href=commit["url"] = commit["message"]
+p = "Добавлено: #{commit['added'].count}"
+p = "Удалено: #{commit['removed'].count}"
+p = "Изменено: #{commit['modified'].count}"
