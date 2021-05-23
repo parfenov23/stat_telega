@@ -17,7 +17,7 @@ module Bot
 
     def self.get_notification_message(type, params)
       view = ActionView::Base.new(ActionController::Base.view_paths, {})
-      message = view.render(template: "notifications/#{type}", locals: params)
+      message = view.render(template: "git_webhook/#{type}", locals: params)
       message
     end
   end
