@@ -1,6 +1,6 @@
 module Bot
   class API
-    def self.test_notify(message)
+    def self.notify(message)
       request({"u": "-574891197", "message": message})
     end
 
