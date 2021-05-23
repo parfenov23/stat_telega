@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, except: [:git_webhook]
-  
+
   def index
     @all_channels = Channel.where(category: nil)
     offset = rand(@all_channels.count)
@@ -31,6 +31,7 @@ class HomeController < ApplicationController
   end
 
   def git_webhook
+    p params.to_json
     render json: {success: true}
   end
 
