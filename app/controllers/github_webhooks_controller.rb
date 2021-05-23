@@ -9,18 +9,23 @@ class GithubWebhooksController < ActionController::Base
   end
   # Handle create event Создал новую ветку
   def github_create(payload)
-    binding.pry
   end
 
   def github_commit_comment(payload)
-    binding.pry 
+    comment =  payload["comment"]
+    git_params = {
+      author_name: comment["user"]["login"], 
+      url: comment["html_url"], 
+      body: comment["body"]
+    }
+    Bot::API.notify("commit_comment", git_params)
   end
   # создал пулл реквест
   def github_pull_request(payload)
     pull_request = payload["pull_request"]
     git_params = {
       pusher_name: pull_request["user"]["login"], 
-      url: pull_request["url"], 
+      url: pull_request["html_url"], 
       title: pull_request["title"],
       body: pull_request["body"],
       branch: pull_request["head"]["ref"],
@@ -31,11 +36,17 @@ class GithubWebhooksController < ActionController::Base
 
   #отправил ревью кода
   def github_pull_request_review(payload)
-
   end
-
+  # добавил комментарий к коду
   def github_pull_request_review_comment(payload)
-
+    comment =  payload["comment"]
+    git_params = {
+      author_name: comment["user"]["login"], 
+      url: comment["html_url"], 
+      body: comment["body"],
+      branch: payload["pull_request"]["head"]["ref"]
+    }
+    Bot::API.notify("pull_request_review_comment", git_params)
   end
 
   private
