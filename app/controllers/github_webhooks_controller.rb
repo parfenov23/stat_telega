@@ -2,18 +2,33 @@ class GithubWebhooksController < ActionController::Base
   skip_before_action :verify_authenticity_token
   include GithubWebhook::Processor
 
-  # Handle push event
+  # Handle push event пуш в ветку
   def github_push(payload)
-    binding.pry
+    git_params = {pusher_name: payload["pusher"]["name"], commits: payload["commits"], branch: payload["ref"]}
+    p "================================="
+    p git_params
   end
 
-  # Handle create event
+  # Handle create event Создал новую ветку
   def github_create(payload)
     binding.pry
   end
 
   def github_commit_comment(payload)
     binding.pry 
+  end
+  # создал пулл реквест
+  def github_pull_request(payload)
+    binding.pry 
+  end
+
+  #отправил ревью кода
+  def github_pull_request_review(payload)
+
+  end
+
+  def github_pull_request_review_comment(payload)
+
   end
 
   private
