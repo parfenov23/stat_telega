@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/add_channels", to: "home#add_channels"
   post "/create_channels", to: "home#create_channels"
   resource :github_webhooks, only: :create, defaults: { formats: :json }
+  
   get "/all_to_archive", to: "home#all_to_archive"
 
 
