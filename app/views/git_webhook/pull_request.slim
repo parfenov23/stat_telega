@@ -1,0 +1,11 @@
+p Тип: PULL REQUEST
+p = "User: #{pusher_name}"
+p = "Ветка: #{branch}"
+p = "Статус: #{status}"
+- if status == "open"
+  br
+  p = "Заголовок: #{title}" 
+  p = "Описание: #{body}"
+  br
+  p 
+    a href=url Перейти >>>
