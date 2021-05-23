@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/categories", to: "home#categories"
   get "/add_channels", to: "home#add_channels"
   post "/create_channels", to: "home#create_channels"
+  post "/git_webhook", to: "home#git_webhook"
   get "/all_to_archive", to: "home#all_to_archive"
 
 
