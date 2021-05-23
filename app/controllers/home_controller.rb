@@ -31,7 +31,7 @@ class HomeController < ApplicationController
   end
 
   def git_webhook
-    p params.to_json
+    p params.as_json
     render json: {success: true}
   end
 
