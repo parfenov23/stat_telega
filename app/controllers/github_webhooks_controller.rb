@@ -4,12 +4,12 @@ class GithubWebhooksController < ActionController::Base
 
   # Handle push event
   def github_push(payload)
-    p payload
+    binding.pry
   end
 
   # Handle create event
   def github_create(payload)
-    p payload
+    binding.pry
   end
 
   private
