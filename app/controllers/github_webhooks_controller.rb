@@ -5,7 +5,7 @@ class GithubWebhooksController < ActionController::Base
   # Handle push event пуш в ветку
   def github_push(payload)
     git_params = {pusher_name: payload["pusher"]["name"], commits: payload["commits"], branch: payload["ref"]}
-    Bot::API.notify(git_params)
+    Bot::API.notify("push", git_params)
     p "================================="
     p git_params
   end

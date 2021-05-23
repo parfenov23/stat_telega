@@ -1,7 +1,7 @@
 module Bot
   class API
-    def self.notify(message)
-      request({"u": "-574891197", "message": message})
+    def self.notify(type, params)
+      request({"u": "-574891197", "message": get_notification_message(type, params)})
     end
 
     private
@@ -13,6 +13,12 @@ module Bot
         request.form_data = data
         response = http.request request
       end
+    end
+
+    def self.get_notification_message(type, params)
+      view = ActionView::Base.new(ActionController::Base.view_paths, {})
+      message = view.render(template: "notifications/#{type}", locals: params)
+      message
     end
   end
 end
