@@ -15,6 +15,6 @@ class GithubWebhooksController < ActionController::Base
   private
 
   def webhook_secret(payload)
-    ""
+    "20ebf550af27f21b2883978476ffe1b3"
   end
 end
