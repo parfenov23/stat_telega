@@ -9,7 +9,6 @@ class GithubWebhooksController < ActionController::Base
     p "================================="
     p git_params
   end
-
   # Handle create event Создал новую ветку
   def github_create(payload)
     binding.pry
