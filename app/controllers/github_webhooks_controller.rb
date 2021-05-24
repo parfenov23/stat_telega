@@ -28,7 +28,7 @@ class GithubWebhooksController < ActionController::Base
       url: pull_request["html_url"], 
       title: pull_request["title"],
       body: pull_request["body"],
-      branch: pull_request["head"]["ref"],
+      branch: pull_request["head"]["ref"].gsub("refs/heads/", ""),
       status: pull_request["state"]
     }
     Bot::API.notify("pull_request", git_params)
@@ -44,7 +44,7 @@ class GithubWebhooksController < ActionController::Base
       author_name: comment["user"]["login"], 
       url: comment["html_url"], 
       body: comment["body"],
-      branch: payload["pull_request"]["head"]["ref"]
+      branch: payload["pull_request"]["head"]["ref"].gsub("refs/heads/", "")
     }
     Bot::API.notify("pull_request_review_comment", git_params)
   end
