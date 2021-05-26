@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: [:git_webhook]
+  before_action :authenticate_user!, except: [:callback_notify_bot]
 
   def index
     @all_channels = Channel.where(category: nil)
@@ -28,11 +28,6 @@ class HomeController < ApplicationController
         end
       end
     end
-  end
-
-  def git_webhook
-    p params.as_json
-    render json: {success: true}
   end
 
   def update
