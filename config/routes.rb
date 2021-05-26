@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   
   get "/all_to_archive", to: "home#all_to_archive"
 
+  get "/callback_notify_bot", to: "home#callback_notify_bot"
+  post "/callback_notify_bot", to: "home#callback_notify_bot"
+
 
   root :to => "home#index"
 end

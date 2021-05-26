@@ -69,4 +69,8 @@ class HomeController < ApplicationController
     Channel.where(processed: true, archive: false).update(archive: true)
     redirect_back(fallback_location: root_path)
   end
+
+  def callback_notify_bot
+    render json: {success: true, params: params.as_json}
+  end
 end
