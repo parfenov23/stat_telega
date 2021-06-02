@@ -9,6 +9,12 @@ hr
 h3 = "Всего не обработанных: #{@count_no_processed}"
 h3 = "В архиве: #{@count_archive}"
 h3 = "Общее количество обработанных: #{@channels.count}"
+- if @user.blank?
+  hr
+  a.btn.btn-outline-secondary style="margin-right: 24px" href=import_all_path(format: "xlsx") Скачать
+  a.btn.btn-outline-secondary href="/all_to_archive" Перенести в архив
+  br
+  br
 table.table
   thead
     tr
@@ -20,6 +26,3 @@ table.table
         td = find_category(channel.category)
         td 
           a href=channel.link target="_blank" = channel.link
-- if @user.blank?
-  hr
-  a.btn.btn-outline-secondary href="/all_to_archive" Перенести в архив

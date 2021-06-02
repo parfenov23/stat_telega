@@ -65,6 +65,14 @@ class HomeController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def import_all
+    @channels = Channel.where(processed: true, archive: false)
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
+  end
+
   def callback_notify_bot
     render json: {success: true, params: params.as_json}
   end

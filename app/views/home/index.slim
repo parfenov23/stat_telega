@@ -2,7 +2,11 @@
   form action="/update" method="post"
     .form-group
       label Номер категории:
-      input name="category"
+      / input name="category"
+      select name="category"
+        option value="-" -
+        - all_categories.each do |category|
+          option value=category[:id] = "#{category[:id]}-#{category[:title]}"
     input type="hidden" name="id" value=@channel.id
     button.btn.btn-primary type="submit" Сохранить
   br

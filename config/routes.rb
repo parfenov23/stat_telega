@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "/callback_notify_bot", to: "home#callback_notify_bot"
   post "/callback_notify_bot", to: "home#callback_notify_bot"
 
+  get '/import_all', to: 'home#import_all', as: 'import_all'
+
 
   root :to => "home#index"
 end
