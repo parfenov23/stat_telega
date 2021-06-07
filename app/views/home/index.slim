@@ -1,8 +1,7 @@
 - if @channel.present?
-  form action="/update" method="post"
+  form.set_category action="/update" method="post"
     .form-group
-      label Номер категории:
-      / input name="category"
+      div Номер категории:
       select name="category"
         option value="-" -
         - all_categories.each do |category|
@@ -10,13 +9,15 @@
     input type="hidden" name="id" value=@channel.id
     button.btn.btn-primary type="submit" Сохранить
   br
-  a href=@link target="_blank" = @link
-  br
   - if @info.present? || @posts.present?
-    = raw @info
-    - if @current_link.present?
-      a.btn.btn-primary href=@current_link target="_blank" Предпросмотр
+    .channel_info
+      = raw @info
+      - if @current_link.present?
+        a.btn.btn-primary href=@current_link target="_blank" Предпросмотр
+      - elsif @link.present?
+        a.btn.btn-success href=@link target="_blank" Предпросмотр
     hr
     = raw @posts
+  
 - else
   |Нет доступных каналов

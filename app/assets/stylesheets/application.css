@@ -186,6 +186,7 @@ a.tgme_header_link:hover {
 .tgme_widget_message_wrap {
   position: relative;
   padding: 3px 0;
+  background-color: #e5ebef;
 }
 .tgme_widget_message_wrap.prepare_highlight:before {
   content: '';
@@ -210,19 +211,24 @@ a.tgme_header_link:hover {
 .tgme_widget_message {
   display: flex;
   max-width: 100%;
-  padding-right: 6px;
   box-sizing: border-box;
+  margin-bottom: 12px;
 }
 .tgme_widget_message_bubble_tail .bubble_icon {
   transform-origin: 8px 1px;
+}
+.tgme_widget_message .tgme_widget_message_user{
+  display: none;
 }
 .tgme_widget_message_bubble {
   position: relative;
   border: none;
   box-shadow: 0 0 0 1px #dae0e4;
   padding: 4px 9px;
-/*  max-width: 430px;*/
+  max-width: 430px;
   background-color: white;
+  width: 100%;
+  border-radius: 10px;
 }
 .thin_box_shadow .tgme_widget_message_bubble:before {
   background: #dae0e4;
@@ -252,6 +258,24 @@ a.tgme_header_link:hover {
   border-radius: 10px;
   padding: 12px;
   max-width: 430px;
+  margin-bottom: 24px;
+}
+.channel_info{
+  margin-top: 12px;
+  max-width: 430px;
+}
+.channel_info .btn{
+  display: block;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-top: 14px;
+  background: #389ce9;
+  text-transform: uppercase;
+  color: #fff;
 }
 .thin_box_shadow .tgme_channel_info:before {
   background: #dae0e4;
@@ -936,7 +960,40 @@ a.tme_messages_more:hover {
 }
 
 .content{
-  padding: 24px 0px 48px 12px;
+  padding: 24px 12px 48px 12px;
+}
+body{
+  background-color: #e5ebef !important;
+}
+.header nav{
+  background-color: white;
+}
+
+.header nav:after {
+  content: '';
+  transform: scaleY(0.5);
+  background: #b5c0c8;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 1px;
+  transform-origin: 50% 0;
+  z-index: 1;
+}
+
+a{
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+form.set_category select{
+  width: 100%;
+  max-width: 430px;
+  height: 28px;
+  outline: none;
+  border: 1px solid #6297c5;
+  border-radius: 6px;
 }
 
 .logout_user{
@@ -948,18 +1005,18 @@ a.tme_messages_more:hover {
   padding-top: 0!important;
 }
 
- form.row {
+form.row {
   padding-bottom: 12px;
- }
+}
 
- .tgme_widget_message_photo {
-    display: block;
-    position: relative;
-    background: no-repeat center;
-    background-size: cover;
-    background-image: inherit;
-    margin: 0 auto;
-    z-index: 2;
+.tgme_widget_message_photo {
+  display: block;
+  position: relative;
+  background: no-repeat center;
+  background-size: cover;
+  background-image: inherit;
+  margin: 0 auto;
+  z-index: 2;
 }
 
 form.select_users .all_users{
