@@ -986,6 +986,9 @@ a{
   overflow: hidden;
   word-wrap: break-word;
 }
+.tgme_widget_message_grouped_layer{
+  width: 100% !important;
+}
 
 form.set_category select{
   width: 100%;
