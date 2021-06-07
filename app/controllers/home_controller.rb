@@ -40,16 +40,11 @@ class HomeController < ApplicationController
   end
 
   def all
-    @user = User.find(params[:user]) if params[:user].present?
     @count_no_processed = Channel.where(processed: false).count
-    if @user.present? 
-      @count_archive = @user.channels.where(archive: true).count
-      @channels = @user.channels.where(archive: false)
-    else
-      @count_archive = Channel.where(archive: true).count
-      @channels = Channel.where(processed: true, archive: false)
-    end
-    @channels = @channels.order("updated_at")
+    @channels = Channel.where(processed: true)
+    @channels = @channels.where(user_id: params[:users]) if params[:users].present?
+    @channels_archive = @channels.where(archive: true)
+    @channels = @channels.where(archive: false)
   end
 
   def create_channels
@@ -61,12 +56,12 @@ class HomeController < ApplicationController
   end
 
   def all_to_archive
-    Channel.where(processed: true, archive: false).update(archive: true)
+    Channel.where(processed: true, archive: false, user_id: params[:users]).update(archive: true)
     redirect_back(fallback_location: root_path)
   end
 
   def import_all
-    @channels = Channel.where(processed: true, archive: false)
+    @channels = Channel.where(processed: true, archive: false, user_id: params[:users])
     respond_to do |format|
       format.html
       format.xlsx

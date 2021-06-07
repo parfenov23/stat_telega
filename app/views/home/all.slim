@@ -1,28 +1,20 @@
-form.input-group 
-  select#inputGroupSelect04.custom-select name="user"
-    option value="" Выберите пользователя
-    - User.all.each do |user|
-      option value=user.id selected=(user.id == params[:user].to_i)  = user.email
-  .input-group-append
-    button.btn.btn-outline-secondary type="submit"  Просмотр
-hr
 h3 = "Всего не обработанных: #{@count_no_processed}"
-h3 = "В архиве: #{@count_archive}"
+form.select_users
+  .all_users 
+    - User.all.each do |user|
+      .form-check
+        - current_select = (params[:users] || []).include?(user.id.to_s)
+        input#flexCheckDefault.form-check-input name="users[]" type="checkbox" value=user.id checked=current_select
+        label.form-check-label for="flexCheckDefault" 
+          = user.email
+  .input-group-append
+    button.btn.btn-primary type="submit"  Просмотр
+hr
+h3 = "В архиве: #{@channels_archive.count}"
 h3 = "Общее количество обработанных: #{@channels.count}"
-- if @user.blank?
-  hr
-  a.btn.btn-outline-secondary style="margin-right: 24px" href=import_all_path(format: "xlsx") Скачать
-  a.btn.btn-outline-secondary href="/all_to_archive" Перенести в архив
+- if params[:users].present?
+  a.btn.btn-info style="margin-right: 24px" href=import_all_path(format: "xlsx", users: params[:users]) Скачать Таблицу
+  - params_users = params[:users].present? ? "?#{params[:users].to_query(:users)}" : ""
+  a.btn.btn-outline-success href="/all_to_archive#{params_users}" Перенести в архив
   br
   br
-table.table
-  thead
-    tr
-      th scope="col"  Категория
-      th scope="col"  Ссылка
-  tbody
-    - @channels.each do |channel|
-      tr
-        td = find_category(channel.category)
-        td 
-          a href=channel.link target="_blank" = channel.link
