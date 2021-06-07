@@ -18,3 +18,15 @@ h3 = "Общее количество обработанных: #{@channels.coun
   a.btn.btn-outline-success href="/all_to_archive#{params_users}" Перенести в архив
   br
   br
+hr
+table.table
+  thead
+    tr
+      th scope="col"  Категория
+      th scope="col"  Ссылка
+  tbody
+    - @channels.each do |channel|
+      tr
+        td = find_category(channel.category)
+        td 
+          a href=channel.link target="_blank" = channel.link 
