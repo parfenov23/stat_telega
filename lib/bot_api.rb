@@ -10,7 +10,7 @@ module Bot
 
       Net::HTTP.start(uri.host, uri.port, :use_ssl => false ) do |http|
         request = Net::HTTP::Post.new(uri.path, 
-          {'Content-Type' => 'application/json',  'Authorization' => "Token 4ea8d6c2aaa2a3fb40958c2ccdc35788"})
+          {'Content-Type' => 'application/json',  'Authorization' => "Token a2a4d6e32aa8ccb5829c7df8c4035ac8"})
         request.form_data = data
         response = http.request request
       end
