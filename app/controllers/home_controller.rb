@@ -71,4 +71,8 @@ class HomeController < ApplicationController
   def callback_notify_bot
     render json: {success: true, params: params.as_json}
   end
+
+  def jira_notify
+    render json: {success: true}
+  end
 end

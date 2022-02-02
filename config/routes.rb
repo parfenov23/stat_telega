@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   get "/categories", to: "home#categories"
   get "/add_channels", to: "home#add_channels"
   post "/create_channels", to: "home#create_channels"
+  
+  resource :jira_webhooks, defaults: { formats: :json } do
+    collection do
+      post "notify/:project_id", to: "jira_webhooks#notify"
+    end
+  end
   resource :github_webhooks, only: :create, defaults: { formats: :json }
   
   get "/all_to_archive", to: "home#all_to_archive"

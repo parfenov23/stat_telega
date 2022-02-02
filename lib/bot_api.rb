@@ -1,7 +1,7 @@
 module Bot
   class API
-    def self.notify(type, params)
-      request({"u": -574891197, "message": get_notification_message(type, params)})
+    def self.notify(type, params, id=-574891197)
+      request({"u": id, "message": get_notification_message(type, params)})
     end
 
     private
