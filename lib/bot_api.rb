@@ -6,7 +6,7 @@ module Bot
 
     private
     def self.request(data)
-      uri = URI("http://193.176.79.94/bot_notify.php")
+      uri = URI("http://194.67.87.132/bot_notify.php")
 
       Net::HTTP.start(uri.host, uri.port, :use_ssl => false ) do |http|
         request = Net::HTTP::Post.new(uri.path, 
