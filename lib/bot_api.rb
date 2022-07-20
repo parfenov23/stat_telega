@@ -1,17 +1,17 @@
 module Bot
   class API
     def self.notify(type, params, id=-574891197)
-      request({"u": id, "message": get_notification_message(type, params)})
+      request({u: id, message: get_notification_message(type, params)})
     end
 
     private
     def self.request(data)
-      uri = URI("http://194.67.87.132/bot_notify.php")
+      uri = URI("http://stat.telega.in/tg_api_bots/notify/send_message")
 
       Net::HTTP.start(uri.host, uri.port, :use_ssl => false ) do |http|
         request = Net::HTTP::Post.new(uri.path, 
-          {'Content-Type' => 'application/json',  'Authorization' => "Token a2a4d6e32aa8ccb5829c7df8c4035ac8"})
-        request.form_data = data
+          {'Content-Type' => 'application/json'})
+        request.form_data = data.merge({key: "48cb524b0e80838b67d1"})
         response = http.request request
       end
     end

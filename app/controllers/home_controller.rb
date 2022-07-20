@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, except: [:callback_notify_bot]
+  before_action :authenticate_user!, except: [:callback_notify_bot, :jira_notify]
 
   def index
     @all_channels = Channel.where(category: nil)
