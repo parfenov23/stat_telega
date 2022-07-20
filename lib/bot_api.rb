@@ -6,7 +6,7 @@ module Bot
 
     private
     def self.request(data)
-      uri = URI("http://stat.telega.in/tg_api_bots/notify/send_message")
+      uri = URI("http://telega.in/tg_api_bots/notify/send_message")
 
       Net::HTTP.start(uri.host, uri.port, :use_ssl => false ) do |http|
         request = Net::HTTP::Post.new(uri.path, 
