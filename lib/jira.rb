@@ -2,7 +2,7 @@ class Jira
   def self.get_chat_from_project(project_id)
     case project_id
     when 10000
-      -669280248
+      -814657630
     end
   end
 
