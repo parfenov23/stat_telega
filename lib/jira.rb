@@ -3,6 +3,8 @@ class Jira
     case project_id
     when 10000
       -814657630
+    when 10002
+      -664080136
     end
   end
 
@@ -18,6 +20,10 @@ class Jira
       "@pwgen777"
     when "60be503700bdd900684a8912"
       "@summnas"
+    when "5e8acb6b71d2150b82da5e1c"
+      "@maximfringe"
+    when "70121:97c89137-fb3c-4391-804d-d99e591c2042"
+      "@DoggyDogFPV"
     end
   end
 end
