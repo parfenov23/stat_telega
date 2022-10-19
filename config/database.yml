@@ -14,6 +14,20 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: 109.120.180.30
+#   username: parfenov_test
+#   password: 1j4RbF*81Gv003KV
+#   # For details on connection pooling, see Rails configuration guide
+#   # http://guides.rubyonrails.org/configuring.html#database-pooling
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+# development:
+#   <<: *default
+#   database: PostgreSQL-8878
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -24,7 +38,6 @@ default: &default
 development:
   <<: *default
   database: stat_telega_development
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
