@@ -4,7 +4,7 @@ set :rvm_ruby_version, '2.3.1'
 set :repo_url, 'git@github.com:parfenov23/stat_telega.git'
 
 set :linked_files, fetch(:linked_files, []).push('config/database.yml',
-                                                 'config/secrets.yml')
+                                                 'config/secrets.yml', 'config/master.key')
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log',
                                                'tmp/pids',
