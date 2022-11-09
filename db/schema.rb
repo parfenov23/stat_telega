@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_142946) do
+ActiveRecord::Schema.define(version: 2022_11_08_150458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 2021_03_13_142946) do
     t.integer "user_id"
     t.boolean "processed", default: false
     t.boolean "archive", default: false
+  end
+
+  create_table "short_links", force: :cascade do |t|
+    t.string "link_id"
+    t.string "link"
+    t.integer "channel_id"
+    t.integer "order_channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stat_short_links", force: :cascade do |t|
+    t.bigint "short_link_id", null: false
+    t.string "ip"
+    t.integer "count", default: 0
+    t.json "additional_info", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["short_link_id"], name: "index_stat_short_links_on_short_link_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,4 +57,5 @@ ActiveRecord::Schema.define(version: 2021_03_13_142946) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "stat_short_links", "short_links"
 end

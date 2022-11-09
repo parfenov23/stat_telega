@@ -38,6 +38,7 @@ default: &default
 development:
   <<: *default
   database: stat_telega_development
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -92,7 +93,15 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: stat_telega_production
-  username: stat_telega
-  password: <%= ENV['STAT_TELEGA_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  database: telega_stat
+  pool: 5
+  username: <%= Rails.application.credentials.postgres[:username] %>
+  password:  <%= Rails.application.credentials.postgres[:password] %> 
+  host: <%= Rails.application.credentials.postgres[:host] %>  # remote database server ip
+  port: 6432 
+  # <<: *default
+  # database: stat_telega_production
+  # username: stat_telega
+  # password: <%= ENV['STAT_TELEGA_DATABASE_PASSWORD'] %>

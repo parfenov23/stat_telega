@@ -14,7 +14,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim', '~> 2.0.0'
 gem 'mechanize'
-gem 'devise'
 
 gem 'rubyzip', '>= 1.2.1'
 gem 'zip-zip'
