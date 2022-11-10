@@ -14,6 +14,14 @@ class HomeController < ApplicationController
     return go_to_link(short_link.link)
   end
 
+  def stats
+    link_ids = params[:links].map{|link| link.gsub("https://tglink.io/")}
+    stat_short_links = StatShortLink.where(short_link_id: ShortLink.where(link_id: link_ids).ids)
+    all_count = stat_short_links.sum(:count)
+
+    render json: {all_count: all_count, count: stat_short_links.count}
+  end
+
   def create_link
     links = params[:links].map{|link| {link: link, channel_id: params[:channel], order_channel_id: params[:order_channel_id]}}
     short_links = ShortLink.create(links)

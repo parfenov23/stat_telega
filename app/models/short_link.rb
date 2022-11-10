@@ -1,5 +1,5 @@
 class ShortLink < ApplicationRecord
-  has_many :stat_short_links
+  has_many :stat_short_links, dependent: :destroy
   before_validation :generate_link_id
   
   def save_stat!(result)
