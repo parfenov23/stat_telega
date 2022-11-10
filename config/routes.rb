@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 
   post "/create_link", to: "home#create_link" 
+  post "/stats", to: "home#stats" 
   get "/:id", to: "home#index" 
   root :to => "home#index"
 end
