@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def stats
-    link_ids = params[:links].map{|link| link.gsub("https://tglink.io/")}
+    link_ids = params[:links].map{|link| link.gsub("https://tglink.io/", "")}
     stat_short_links = StatShortLink.where(short_link_id: ShortLink.where(link_id: link_ids).ids)
     all_count = stat_short_links.sum(:count)
 
