@@ -29,6 +29,12 @@ class HomeController < ApplicationController
     render json: {result: short_links.map{|sl| {link: sl.link, id: sl.link_id} }}
   end
 
+  def update_short_links
+    short_links = ShortLink.where(link_id: params[:ids])
+    short_links.update(order_channel_id: params[:order_channel_id])
+
+    render json: {success: true}
+  end
 
   def callback_notify_bot
     render json: {success: true, params: params.as_json}

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   post "/create_link", to: "home#create_link" 
   post "/stats", to: "home#stats" 
+  post "/update_short_links", to: "home#update_short_links" 
   get "/:id", to: "home#index" 
   root :to => "home#index"
 end
