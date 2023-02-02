@@ -1,0 +1,14 @@
+---
+:concurrency: 5
+:pidfile: tmp/pids/sidekiq.pid
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 35
+:queues:
+  - jobs_queue
+  - cron_queue
+  - run_hot_sessions_job
+:process_limits:
+  cron_queue: 5
+  jobs_queue: 2
