@@ -30,6 +30,7 @@ require 'capistrano3/unicorn'
 require 'whenever/capistrano'
 require 'capistrano/secrets_yml'
 require 'capistrano/sidekiq'
+require 'capistrano/pyenv'
 # require 'slackistrano'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined

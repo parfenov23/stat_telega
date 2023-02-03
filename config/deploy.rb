@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
-require "capistrano-pyenv"
+# require "capistrano-pyenv"
 lock '3.17.1'
+set :pyenv_python_version, "3.10.8"
 set :rvm_ruby_version, '2.3.1'
 set :repo_url, 'git@github.com:parfenov23/stat_telega.git'
 
@@ -20,7 +21,6 @@ set :keep_releases, 3
 set :whenever_roles, [:app]
 set :deploy_via, :copy
 set :copy_cache, false
-set :pyenv_python_version, "3.10.8"
 
 namespace :deploy do
   after 'deploy:publishing', 'deploy:restart'
