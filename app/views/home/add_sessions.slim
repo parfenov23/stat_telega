@@ -1,0 +1,6 @@
+= form_tag unzip_sessions_path, method: :post, multipart: true do
+  = file_field_tag :file
+  = submit_tag 'Upload Sessions ZIP'
+br
+- if flash[:notice].present?
+  .notice = flash[:notice]
