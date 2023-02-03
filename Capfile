@@ -29,7 +29,8 @@ require 'capistrano/rvm'
 require 'capistrano3/unicorn'
 require 'whenever/capistrano'
 require 'capistrano/secrets_yml'
+require 'capistrano/sidekiq'
 # require 'slackistrano'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-# Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

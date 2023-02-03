@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.16.0'
+lock '3.17.1'
 set :rvm_ruby_version, '2.3.1'
 set :repo_url, 'git@github.com:parfenov23/stat_telega.git'
 
