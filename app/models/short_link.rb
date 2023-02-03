@@ -12,6 +12,6 @@ class ShortLink < ApplicationRecord
   private
 
   def generate_link_id
-    self.link_id = SecureRandom.hex(6) if link_id.blank?
+    self.link_id = SecureRandom.hex(6)
   end
 end
