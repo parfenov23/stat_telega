@@ -17,6 +17,7 @@ class RunHotSessionsJob < ApplicationJob
     Bot::API.notify("hot_sessions", hot_sessions_params, -895037612)
   end
 
+
   def zip_folder(file_name)
     folder_path = "#{Rails.root}/public/uploads/hot_session"
     entries = Dir.entries(folder_path) - %w[. ..]
