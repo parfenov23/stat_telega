@@ -41,7 +41,6 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-unicorn'
   gem 'capistrano-secrets-yml'
-  gem 'capistrano-pyenv', require: false
   gem 'puma'
 end
 

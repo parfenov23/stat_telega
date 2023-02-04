@@ -21,9 +21,19 @@ set :keep_releases, 3
 set :whenever_roles, [:app]
 set :deploy_via, :copy
 set :copy_cache, false
-
+set :default_env, { path: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 namespace :deploy do
   after 'deploy:publishing', 'deploy:restart'
+
+  task :set_pyenv do
+    on roles(:app) do
+      # execute 'exec bash'
+      # execute 'll'
+      # execute "if command -v pyenv 1>/dev/null 2>&1; then\n eval \"$(pyenv init -)\"\nfi"
+      # execute "exec \"$SHELL\""
+      # execute 'pyenv versions'
+    end
+  end
 
   task :restart do
     invoke 'unicorn:legacy_restart'
@@ -36,4 +46,8 @@ namespace :deploy do
   task :stop do
     invoke 'unicorn:stop'
   end
+
+  # before 'deploy:starting', :some_task do
+  #   execute 'pyenv local 3.10.8'
+  # end
 end
