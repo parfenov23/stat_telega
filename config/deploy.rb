@@ -27,6 +27,11 @@ namespace :deploy do
 
   task :set_pyenv do
     on roles(:app) do
+      execute "ls ~/.pyenv"
+      # execute "export PYENV_ROOT=\"$HOME/.pyenv\""
+      # execute "export PATH=\"$PYENV_ROOT/bin:$PATH\""
+      # execute "eval \"$(pyenv init --path)\""
+      # execute "eval \"$(pyenv init -)\""
       # execute 'exec bash'
       # execute 'll'
       # execute "if command -v pyenv 1>/dev/null 2>&1; then\n eval \"$(pyenv init -)\"\nfi"
@@ -47,7 +52,7 @@ namespace :deploy do
     invoke 'unicorn:stop'
   end
 
-  # before 'deploy:starting', :some_task do
-  #   execute 'pyenv local 3.10.8'
-  # end
+  before 'deploy:starting', :some_task do
+    execute 'pyenv local 3.10.8'
+  end
 end
