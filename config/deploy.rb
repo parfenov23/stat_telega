@@ -24,7 +24,7 @@ set :copy_cache, false
 set :default_env, { path: "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
 namespace :deploy do
   after 'deploy:publishing', 'deploy:restart'
-
+ 
   # task :set_pyenv do
   #   on roles(:app) do
   #     execute "ls ~/.pyenv"
