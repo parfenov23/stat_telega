@@ -56,3 +56,4 @@ namespace :deploy do
     execute 'pyenv local 3.10.8'
   end
 end
+
