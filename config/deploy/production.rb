@@ -1,6 +1,6 @@
 set :application, 'stat_telega'
 set :user, 'stat_telega'
-server '95.217.213.32', user: fetch(:user), roles: %w(web app db)
+server '84.201.164.235', user: fetch(:user), roles: %w(web app db)
 set :rails_env, 'production'
 set :branch, :master
 

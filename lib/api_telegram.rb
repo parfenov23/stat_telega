@@ -33,7 +33,7 @@ class ApiTelegram
       path_session(curr_session_path), 
       config["app_id"], 
       config["app_hash"], 
-      proxy: current_proxy.proxy, 
+      proxy: current_proxy(curr_session_path).proxy,
       timeout: 10, 
       loop: @curr_loop, 
       device_model: config["device"], 
@@ -171,7 +171,9 @@ class ApiTelegram
           api_telega&.disconnect
 
           # переносим в папку прогретые сессии
-          FileUtils.move("#{curr_session_path}#{sid}", "#{Rails.root}/public/uploads/hot_session/#{sid}")
+          new_path = "#{Rails.root}/public/uploads/hot_sessions/#{sid}"
+
+          FileUtils.move("#{curr_session_path}#{sid}", new_path)
         else
           telegram_logger.info("SID: #{sid} | PROBLEM AUTH: #{api_telega.error[:error]} MSG: #{api_telega.error[:message]}")
           # api_telega&.curr_loop&.close()
@@ -262,40 +264,49 @@ class ApiTelegram
     return error.message
   end
 
-  def current_proxy
+  def current_proxy(curr_session_path)
     proxy = socks.socksocket()
     current_ip = config["proxy_id"]
     if current_ip.nil?
       current_ip = all_proxy.sample
-      result = JSON.parse(File.read(path_json))
+      result = JSON.parse(File.read(path_json(curr_session_path)))
       result["proxy"] = current_ip
-      File.write(path_json, result.to_json)
+      File.write(path_json(curr_session_path), result.to_json)
     end
     proxy.set_proxy(proxy, socks.PROXY_TYPE_SOCKS5, current_ip, 8000)
     proxy
   end
 
   def all_proxy
-    [
-      "168.80.248.175",
-      "168.80.253.91",
-      "168.80.254.136",
-      "168.80.253.86",
-      "168.80.252.76",
-      "168.80.252.91",
-      "168.80.250.133",
-      "45.95.150.89",
-      "45.95.148.115",
-      "45.95.148.37",
-      "45.95.149.148",
-      "45.95.150.177",
-      "168.80.62.90",
-      "87.247.146.4",
-      "87.247.146.131",
-      "45.10.248.174",
-      "45.95.148.209",
-      "91.198.208.187"
-    ]
+    ["168.80.253.177",
+     "168.80.248.176",
+     "168.80.253.225",
+     "168.80.255.220",
+     "168.80.242.126",
+     "168.80.253.220",
+     "168.80.255.85",
+     "168.80.252.113",
+     "168.80.253.243",
+     "168.80.253.80",
+     "168.80.250.133",
+     "168.80.253.16",
+     "168.80.255.32",
+     "168.80.255.104",
+     "168.80.248.175",
+     "168.80.240.147",
+     "168.80.251.244",
+     "168.80.249.139",
+     "168.80.250.231",
+     "168.80.250.166",
+     "168.80.250.110",
+     "168.80.250.150",
+     "168.80.255.219",
+     "168.80.249.194",
+     "168.80.249.138",
+     "168.80.253.84",
+     "168.80.250.220",
+     "168.80.250.73",
+     "168.80.251.146"]
   end
 
   def get_config(curr_session_path)
