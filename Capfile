@@ -29,7 +29,7 @@ require 'capistrano/rvm'
 require 'capistrano3/unicorn'
 require 'whenever/capistrano'
 require 'capistrano/secrets_yml'
-require 'capistrano/sidekiq'
+# require 'capistrano/sidekiq'
 # require 'capistrano_pyenv'
 # require 'slackistrano'
 
