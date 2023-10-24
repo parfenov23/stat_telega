@@ -4,4 +4,4 @@
 #   end
 # end
 #
-PyCall::LibPython::Finder.investigate_python_config("python3")
+# PyCall::LibPython::Finder.investigate_python_config("python3")
