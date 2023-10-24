@@ -44,28 +44,10 @@ class HomeController < ApplicationController
     render json: {success: true}
   end
 
-  def unzip_sessions
-    file = params[:file]
-    destination = "#{Rails.root}/public/uploads/#{file.original_filename.gsub('.zip', '')}"
-    unzip_file(file.path, destination)
-    RunHotSessionsJob.perform_later(destination)
-    redirect_to upload_sessions_path, notice: "Archive unzipped successfully."
-  end
-
 
   private 
 
   def go_to_link(link)
     redirect_to link
-  end
-
-  def unzip_file(file, destination)
-    Zip::File.open(file) do |zip_file|
-      zip_file.each do |f|
-        f_path = File.join(destination, f.name)
-        FileUtils.mkdir_p(File.dirname(f_path))
-        zip_file.extract(f, f_path) unless File.exist?(f_path)
-      end
-    end
   end
 end

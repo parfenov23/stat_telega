@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       post "notify/:project_id", to: "jira_webhooks#notify"
     end
   end
-  resource :github_webhooks, only: :create, defaults: { formats: :json }
 
   get "/callback_notify_bot", to: "home#callback_notify_bot"
   post "/callback_notify_bot", to: "home#callback_notify_bot"
