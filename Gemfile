@@ -4,15 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.1'
 
 gem 'rails', '= 5.2.4.5'
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'slim', '~> 2.0.0'
+# gem 'bootsnap', '>= 1.1.0', require: false
+gem 'slim'
 gem 'nokogiri'
+gem 'loofah', '~>2.19.1'
 # gem 'mechanize'
 # gem 'public_suffix', '4.0.7'
 # gem 'regexp_parser', '1.8.2'

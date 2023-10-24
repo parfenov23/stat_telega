@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 # require "capistrano-pyenv"
-lock '3.17.3'
+lock '3.18.0'
 # set :pyenv_python_version, "3.10.8"
 set :rvm_ruby_version, '2.3.1'
 set :repo_url, 'git@github.com:parfenov23/stat_telega.git'
